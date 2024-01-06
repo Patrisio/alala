@@ -1,0 +1,1 @@
+export {TextVM} from './vm';

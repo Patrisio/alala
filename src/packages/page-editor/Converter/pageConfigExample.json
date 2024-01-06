@@ -1,0 +1,177 @@
+[
+    {
+      "elements": [],
+      "grid": {
+        "rows": 10,
+        "columns": 24,
+        "rowGap": 10,
+        "columnGap": 10,
+        "maxRowsCount": 10,
+        "gridCellHeight": 36
+      }
+    },
+    {
+      "elements": [
+        {
+          "id": "1afc726e-18bf-4ad5-8812-a28afafe5e07",
+          "width": 256.0416666666667,
+          "height": 82,
+          "minWidth": 43.208333333333336,
+          "minHeight": 36,
+          "position": {
+            "rowStart": 1,
+            "rowEnd": 3,
+            "columnStart": 2,
+            "columnEnd": 7
+          },
+          "type": "BUTTON"
+        },
+        {
+          "id": "bed8fd04-d433-4da1-9a37-b19a0131b666",
+          "width": 202.83333333333334,
+          "height": 174,
+          "minWidth": 43.208333333333336,
+          "minHeight": 36,
+          "position": {
+            "rowStart": 1,
+            "rowEnd": 5,
+            "columnStart": 2,
+            "columnEnd": 6
+          },
+          "type": "SHAPE"
+        }
+      ],
+      "grid": {
+        "rows": 10,
+        "columns": 24,
+        "rowGap": 10,
+        "columnGap": 10,
+        "maxRowsCount": 10,
+        "gridCellHeight": 36
+      }
+    },
+    {
+      "elements": [
+        {
+          "id": "e5e179ce-a73e-4ffc-b976-23b6e15ca062",
+          "width": 256.0416666666667,
+          "height": 82,
+          "minWidth": 43.208333333333336,
+          "minHeight": 36,
+          "position": {
+            "rowStart": 4,
+            "rowEnd": 6,
+            "columnStart": 7,
+            "columnEnd": 12
+          },
+          "type": "BUTTON"
+        },
+        {
+          "id": "22fb81ce-92c5-4d63-ad8d-87f7383473ff",
+          "width": 468.875,
+          "height": 312,
+          "minWidth": 43.208333333333336,
+          "minHeight": 36,
+          "position": {
+            "rowStart": 3,
+            "rowEnd": 10,
+            "columnStart": 1,
+            "columnEnd": 10
+          },
+          "type": "SHAPE"
+        },
+        {
+          "id": "b3b7cef7-8540-41a9-b94a-77ed552e7131",
+          "width": 202.83333333333334,
+          "height": 174,
+          "minWidth": 43.208333333333336,
+          "minHeight": 36,
+          "position": {
+            "rowStart": 4,
+            "rowEnd": 8,
+            "columnStart": 12,
+            "columnEnd": 16
+          },
+          "type": "SHAPE"
+        },
+        {
+          "id": "5ab6fcbb-6ea2-42ee-9f81-7a914ae75c0a",
+          "width": 149.625,
+          "height": 266,
+          "minWidth": 43.208333333333336,
+          "minHeight": 36,
+          "position": {
+            "rowStart": 6,
+            "rowEnd": 12,
+            "columnStart": 17,
+            "columnEnd": 20
+          },
+          "type": "BUTTON"
+        },
+        {
+          "id": "f949b7b8-4bfa-447f-987f-e07d6d2f5f65",
+          "width": 256.0416666666667,
+          "height": 82,
+          "minWidth": 43.208333333333336,
+          "minHeight": 36,
+          "position": {
+            "rowStart": 5,
+            "rowEnd": 7,
+            "columnStart": 18,
+            "columnEnd": 23
+          },
+          "type": "BUTTON"
+        },
+        {
+          "id": "30e5164f-1e2e-4b08-86fb-d4dae410a3a9",
+          "width": 96.41666666666667,
+          "height": 82,
+          "minWidth": 43.208333333333336,
+          "minHeight": 36,
+          "position": {
+            "rowStart": 11,
+            "rowEnd": 13,
+            "columnStart": 9,
+            "columnEnd": 11
+          },
+          "type": "BUTTON"
+        },
+        {
+          "id": "4bc7077b-4576-4790-9273-f6b1cba50aed",
+          "width": 765.2083333333334,
+          "height": 174,
+          "minWidth": 43.208333333333336,
+          "minHeight": 36,
+          "position": {
+            "rowStart": 9,
+            "rowEnd": 13,
+            "columnStart": 13,
+            "columnEnd": 27
+          },
+          "type": "SHAPE"
+        },
+        {
+          "id": "4c967a1b-bed5-4971-b0e9-6f87ef3e794b",
+          "width": 256.0416666666667,
+          "height": 312,
+          "minWidth": 43.208333333333336,
+          "minHeight": 36,
+          "position": {
+            "rowStart": 14,
+            "rowEnd": 21,
+            "columnStart": 4,
+            "columnEnd": 9
+          },
+          "type": "BUTTON"
+        }
+      ],
+      "grid": {
+        "rows": 21,
+        "columns": 24,
+        "rowGap": 10,
+        "columnGap": 10,
+        "maxRowsCount": 21,
+        "gridCellHeight": 36
+      }
+    }
+]

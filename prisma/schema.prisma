@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Website {
+  id    Int    @id @default(autoincrement())
+  name  String
+  pages Page[]
+}
+
+model Page {
+  id        Int       @id @default(autoincrement())
+  sections  Section[]
+  website   Website   @relation(fields: [websiteId], references: [id])
+  websiteId Int
+}
+
+model Section {
+  id      Int       @id @default(autoincrement())
+  element Element[]
+  pageId  Int
+  page    Page      @relation(fields: [pageId], references: [id])
+}
+
+model Element {
+  id        Int     @id @default(autoincrement())
+  sectionId Int
+  Section   Section @relation(fields: [sectionId], references: [id])
+}
+

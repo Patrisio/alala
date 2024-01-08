@@ -1,0 +1,10 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "lets go",
+        "type": "node-terminal",
+        "request": "launch",
+      },
+    ]
+  }

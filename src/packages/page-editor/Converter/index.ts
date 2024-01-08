@@ -9,12 +9,14 @@ export class Converter {
 
     constructor(
         private pageConfig: any,
+        private pageId?: number,
+        private pageName?: string,
     ) {
-        this.page = this.createPage();
+        this.page = this.createPage(pageId, pageName);
     }
 
-    private createPage() {
-        const page = new Page();
+    private createPage(pageId?: number, pageName?: string) {
+        const page = new Page(pageId, pageName);
 
         for (let sectionConfig of this.pageConfig) {
             const {elements, grid: gridConfig} = sectionConfig;
@@ -80,17 +82,6 @@ export class Converter {
         }
 
         section.addElement(element);
-    }
-
-    private getElementByType(type, elementInputData) {
-        switch (type) {
-            case 'SHAPE':
-                return new ShapeVM(...elementInputData);
-            case 'BUTTON':
-                return new ButtonVM(elementInputData);
-            default:
-                throw new Error('Переданного типа элемента не существует в системе.');
-        }
     }
 
     getPage() {

@@ -9,7 +9,7 @@ import {makeObservable, toJS, action} from 'mobx';
 import {v4 as uuid} from 'uuid';
 
 export class Element {
-    public id = uuid();
+    public id = Math.round(Math.random() * 1000);
     public sharedState = new SharedState();
     public positionerUnitViewModel: any;
     public outlineUnitViewModel: any;
@@ -44,7 +44,10 @@ export class Element {
             height: this.height,
             minWidth: this.minWidth,
             minHeight: this.minHeight,
-            position: toJS(this.positionerUnitViewModel.position),
+            position: {
+                ...toJS(this.positionerUnitViewModel.position),
+                id: this.positionerUnitViewModel.id,
+            },
             type: this.type,
         };
     }

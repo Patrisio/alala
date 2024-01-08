@@ -1,7 +1,9 @@
 import {makeAutoObservable} from 'mobx';
-import {ShapeType} from './types';
+import {v4 as uuid} from 'uuid';
 
 export class PositionerUnitViewModel {
+    public id = Math.round(Math.random() * 1000);
+
     constructor(
         private position: any,
     ) {

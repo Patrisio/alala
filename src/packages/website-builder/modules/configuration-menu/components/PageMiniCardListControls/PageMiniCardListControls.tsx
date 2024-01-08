@@ -12,7 +12,7 @@ export const PageMiniCardListControls = ({addEmptyPage}) => {
                         <PopupForAddNewEntityInWebsiteBuilder
                             addEmptyPage={addEmptyPage}
                         />
-                        <ButtonUI onClick={addEmptyPage}>
+                        <ButtonUI>
                             <IconUI name={'chevronDown'} />
                         </ButtonUI>
                     </div>

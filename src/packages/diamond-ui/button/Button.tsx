@@ -6,7 +6,7 @@ export const Button = ({contentLeft, contentRight, text, children, style, ...res
     const hasChildren = Boolean(children);
 
     return (
-        <StyledButton hasChildren={hasChildren} style={style} {...restProps}>
+        <StyledButton $hasChildren={hasChildren} style={style} {...restProps}>
             {children}
             {!children && isContentLeft && contentLeft}
             {!children && text}

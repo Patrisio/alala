@@ -4,16 +4,17 @@ import {SectionVM} from '../section';
 import {GridVM} from '../section/components/grid';
 import {cl, EVENTS} from '../../communication-layer';
 
-
 import {makeObservable, action, observable} from 'mobx';
 import {v4 as uuid} from 'uuid';
 
 export class Page {
-    public id = uuid();
     public sectionsMap = new Map();
     private browserContext: any;
 
-    constructor() {
+    constructor(
+        public id: string | number = uuid(),
+        public name?: string,
+    ) {
         makeObservable(this, {
             sectionsMap: observable,
             addSection: action.bound,

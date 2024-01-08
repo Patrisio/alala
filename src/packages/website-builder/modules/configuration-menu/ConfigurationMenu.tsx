@@ -5,6 +5,7 @@ import {PanelTitle, PageMiniCardListControls, PageMiniCardList} from './componen
 import {observer} from 'mobx-react';
 
 export const ConfigurationMenu = observer(({open, addEmptyPage, pageList}) => {
+    console.log(pageList, '__pageList--');
     return (
         <div
             className='sidebar'

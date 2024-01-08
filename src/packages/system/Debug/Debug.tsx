@@ -4,6 +4,8 @@ import {useState} from 'react';
 import {Converter} from '../../page-editor/Converter';
 import {ShapeVM, ButtonVM, ImageVM, TextVM, FormVM} from '../../page-editor/library/elements';
 import {PageTemplateFactory} from '../../page-editor';
+import {createWebsite, createEmptyWebsite, savePage, hello, updatePage} from '../../website-builder/repository/createPage';
+let pageConfigOuter;
 
 export const Debug = ({page}) => {
     const [section, setSection] = useState(null);
@@ -61,6 +63,7 @@ export const Debug = ({page}) => {
 
     const getConfigHandler = () => {
         const pageConfig = page.getPageConfig();
+        pageConfigOuter = pageConfig;
         const pageResult = new Converter(pageConfig).getPage();
         localStorage.setItem('pageConfigExample', JSON.stringify(pageConfig));
     };
@@ -69,6 +72,19 @@ export const Debug = ({page}) => {
         const randomPage = PageTemplateFactory.createRandomPage();
 
         page.replacePage(randomPage);
+    };
+
+    const getCreateWebsiteHandler = () => {
+        createWebsite();
+    };
+
+    const getCreateEmptyWebsiteHandler = () => {
+        createEmptyWebsite();
+    };
+
+    const savePageHandler = () => {
+        // hello(pageConfigOuter);
+        updatePage(1, pageConfigOuter);
     };
 
     // const renderPageHandler = () => {
@@ -101,6 +117,9 @@ export const Debug = ({page}) => {
             <button onClick={addSectionHandler}>add section</button>
             <button onClick={getConfigHandler}>get config</button>
             <button onClick={getLoadPageHandler}>load Page</button>
+            <button onClick={getCreateWebsiteHandler}>create website</button>
+            <button onClick={getCreateEmptyWebsiteHandler}>create empty website</button>
+            <button onClick={savePageHandler}>save page</button>
             {/* <button onClick={renderPageHandler}>render page, using config from LS</button> */}
         </div>
     );

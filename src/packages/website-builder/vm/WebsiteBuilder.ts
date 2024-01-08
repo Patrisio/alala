@@ -8,7 +8,10 @@ export class WebsiteBuilder {
     private pagesMap = new Map();
     public pageEditor: any;
 
-    constructor() {
+    constructor(
+        private id: number = Math.round(Math.random() * 1000000),
+        private name?: string,
+    ) {
         makeAutoObservable(this);
 
         this.pageEditor = new PageEditorVM();

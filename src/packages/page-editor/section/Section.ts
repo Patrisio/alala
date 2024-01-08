@@ -5,7 +5,7 @@ import {makeAutoObservable} from 'mobx';
 import {v4 as uuid} from 'uuid';
 
 export class Section {
-    public id = uuid();
+    public id = Math.round(Math.random() * 100000);
     private elements = new Map();
     public dragModel;
     public resizeModel;
@@ -39,6 +39,7 @@ export class Section {
         const grid = this.gridViewModel.getConfig();
         
         return {
+            id: this.id,
             elements,
             grid,
         };

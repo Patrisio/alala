@@ -10,8 +10,8 @@ export const GroupedListItem = ({
 }) => {
     return (
         <StyledComponentElement
-            hasLeftGap={hasLeftGap}
-            highlightOnHover={highlightOnHover}
+            $hasLeftGap={hasLeftGap}
+            $highlightOnHover={highlightOnHover}
             {...restProps}
         >
             {leftSlot}

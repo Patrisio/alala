@@ -12,8 +12,6 @@ export class PageEditor {
 
     constructor() {
         makeAutoObservable(this);
-        
-        // window.addEventListener('message', this.handleMessage);
     }
 
     addSection() {
@@ -31,12 +29,6 @@ export class PageEditor {
 
     replacePage(page: any) {
         this.page.replace(page);
-    }
-
-    private handleMessage = (e) => {
-        const pageConfig = e.data.hello;
-        const page = new Converter(pageConfig).getPage();
-        this.replacePage(page);
     }
 
     get sectionList() {

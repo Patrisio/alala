@@ -4,7 +4,7 @@ import {createPage} from '../../../../../repository';
 
 import {Unstable_Popup as BasePopup} from '@mui/base/Unstable_Popup';
 import {ClickAwayListener} from '@mui/base/ClickAwayListener';
-import {useState} from 'react';
+import {useState, useTransition} from 'react';
 
 export const PopupForAddNewEntityInWebsiteBuilder = ({addEmptyPage}) => {
     const [anchor, setAnchor] = useState<null | HTMLElement>(null);
@@ -20,6 +20,15 @@ export const PopupForAddNewEntityInWebsiteBuilder = ({addEmptyPage}) => {
     const open = Boolean(anchor);
     const id = open ? 'simple-popup' : undefined;
 
+    const [isPending, startTransition] = useTransition();
+
+    console.log(isPending, '__isPending__');
+
+    const createPageHandler = async () => {
+        const res = await createPage();
+        console.log(res, '__VIDDD__');
+    };
+
     return (
         <ClickAwayListener onClickAway={closePopup}>
             <div>
@@ -29,6 +38,8 @@ export const PopupForAddNewEntityInWebsiteBuilder = ({addEmptyPage}) => {
                 >
                     <IconUI name={'plus'} />
                 </ButtonUI>
+
+                {isPending ? 'pending' : 'no'}
                 <BasePopup
                     id={id}
                     open={open}
@@ -37,9 +48,9 @@ export const PopupForAddNewEntityInWebsiteBuilder = ({addEmptyPage}) => {
                 >
                     <PopupBody>
                         <ButtonUI
-                            onClick={(e) => {
-                                createPage();
-                                // addEmptyPage();
+                            onClick={async (e) => {
+                                // createPage();
+                                await addEmptyPage();
                                 handleClick(e);
                             }}
                             text={'Добавить пустую страницу'}

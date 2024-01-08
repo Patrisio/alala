@@ -18,21 +18,57 @@ model Website {
 
 model Page {
   id        Int       @id @default(autoincrement())
+  name String
   sections  Section[]
   website   Website   @relation(fields: [websiteId], references: [id])
   websiteId Int
 }
 
 model Section {
-  id      Int       @id @default(autoincrement())
-  element Element[]
-  pageId  Int
-  page    Page      @relation(fields: [pageId], references: [id])
+  id       Int       @id @default(autoincrement())
+  elements Element[]
+  pageId   Int
+  page     Page      @relation(fields: [pageId], references: [id])
+  grid     Grid      @relation(fields: [gridId], references: [id])
+  gridId   Int       @unique
 }
 
 model Element {
-  id        Int     @id @default(autoincrement())
-  sectionId Int
-  Section   Section @relation(fields: [sectionId], references: [id])
+  id         Int          @id @default(autoincrement())
+  width      Decimal
+  height     Decimal
+  minWidth   Decimal
+  minHeight  Decimal
+  type       ELEMENT_TYPE
+  Section    Section      @relation(fields: [sectionId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  sectionId  Int          
+  position   Position     @relation(fields: [positionId], references: [id])
+  positionId Int          @unique
 }
 
+model Grid {
+  id             Int      @id @default(autoincrement())
+  rows           Int
+  columns        Int
+  rowGap         Int
+  columnGap      Int
+  maxRowsCount   Int
+  gridCellHeight Int
+  Section        Section?
+}
+
+model Position {
+  id      Int      @id @default(autoincrement())
+  rowStart   Int
+  rowEnd Int
+  columnStart Int
+  columnEnd Int
+  Element Element?
+}
+
+enum ELEMENT_TYPE {
+  SHAPE
+  BUTTON
+  IMAGE
+  FORM
+}

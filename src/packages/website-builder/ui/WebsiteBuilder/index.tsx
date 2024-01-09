@@ -13,26 +13,28 @@ import dynamic from 'next/dynamic';
 export const WebsiteBuilder = observer(({website: websitePromise}) => {
     const website = use(websitePromise);
     const [websiteBuilderVM, setWebsiteBuilderVM] = useState(null);
-
+    console.log(website, '__website__');
     useEffect(() => {
-        if (!website) return;
-
-        const websiteBuilderVM = new WebsiteBuilderVM(website.id, website.name);
-
-        for (const page of website.pages) {
-            const pageEntity = new Converter(page.sections, page.id, page.name).getPage();
-
-            websiteBuilderVM.addPage(pageEntity);
+        let websiteBuilderVM;
+        console.log(website, '__EEWWEWEWE');
+        if (!website) {
+            websiteBuilderVM = new WebsiteBuilderVM();
+        } else {
+            websiteBuilderVM = new WebsiteBuilderVM(website.id, website.name, website.pages);
         }
+
+        // console.log('__EEEVVV__');
+        // for (const page of website.pages) {
+        //     const pageEntity = new Converter(page.sections, page.id, page.name).getPage();
+
+        //     websiteBuilderVM.asyncAddPage(pageEntity);
+        // }
 
         setWebsiteBuilderVM(websiteBuilderVM);
     }, [website]);
 
 
     const [open, setOpen] = useState(true);
-
-    const addEmptyPage = () => {
-    };
 
 	const ViewportPreviewer = dynamic(() => import('../../modules/viewport-previewer').then((module) => module.ViewportPreviewer), { ssr: false });
 
@@ -44,6 +46,7 @@ export const WebsiteBuilder = observer(({website: websitePromise}) => {
 
         console.log(page, '__VIDDD__');
     };
+    console.log(websiteBuilderVM, 'websiteBuilderVM?.asyncAddPage');
 
     return (
         <>
@@ -58,7 +61,7 @@ export const WebsiteBuilder = observer(({website: websitePromise}) => {
                 </button>
                 <ConfigurationMenu
                     open={open}
-                    addEmptyPage={addPage}
+                    addEmptyPage={async () => await websiteBuilderVM?.asyncAddPage()}
                     pageList={websiteBuilderVM?.pageList ?? []}
                 />
                 <ViewportPreviewerWrapper open={open}>

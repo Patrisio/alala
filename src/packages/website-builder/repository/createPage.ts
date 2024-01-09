@@ -92,12 +92,12 @@ export async function createPage() {
             },
             website: {
                 connect: {
-                    id: 1
+                    id: 2
                 },
             },
         },
     });
-
+    
     return page;
 }
 
@@ -248,7 +248,7 @@ export async function savePage() {
 export async function getWebsite() {
     const page = await prisma.website.findUnique({
 		where: {
-			id: 1,
+			id: 2,
 		},
         include: {
             pages: {

@@ -28,8 +28,8 @@ model Section {
   id       Int       @id @default(autoincrement())
   elements Element[]
   pageId   Int
-  page     Page      @relation(fields: [pageId], references: [id])
-  grid     Grid      @relation(fields: [gridId], references: [id])
+  page     Page      @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  grid     Grid      @relation(fields: [gridId], references: [id], onDelete: Cascade)
   gridId   Int       @unique
 }
 

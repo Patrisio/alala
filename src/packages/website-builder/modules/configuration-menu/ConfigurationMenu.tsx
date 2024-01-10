@@ -4,7 +4,7 @@ import {PanelTitle, PageMiniCardListControls, PageMiniCardList} from './componen
 
 import {observer} from 'mobx-react';
 
-export const ConfigurationMenu = observer(({open, addEmptyPage, pageList}) => {
+export const ConfigurationMenu = observer(({open, addEmptyPage, deletePage, pageList}) => {
     console.log(pageList, '__pageList--');
     return (
         <div
@@ -17,7 +17,10 @@ export const ConfigurationMenu = observer(({open, addEmptyPage, pageList}) => {
         >
             <PanelTitle />
             <PageMiniCardListControls addEmptyPage={addEmptyPage}/>
-            <PageMiniCardList pageList={pageList} />
+            <PageMiniCardList
+                pageList={pageList}
+                deletePage={deletePage}
+            />
 
             <div style={{width: 1000, height: 500}}></div>
         </div>

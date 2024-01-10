@@ -2,7 +2,7 @@
 
 import {PageEditorVM, Converter} from '../../page-editor';
 import {cl, EVENTS} from '../../communication-layer';
-import {createPage} from '../repository';
+import {createPage, deletePage} from '../repository';
 
 import {makeAutoObservable, reaction} from 'mobx';
 
@@ -37,6 +37,20 @@ export class WebsiteBuilder {
             const pageEntity = new Converter(page.sections, page.id, page.name).getPage();
             this.addPage(pageEntity);
         }
+    }
+
+    public async asyncDeletePage(id: number) {
+        const deletedPage = await deletePage(id);
+        this.pagesMap.delete(id);
+    }
+
+    public deletingPage(loadingHandler) {
+        return {
+            loadingReactionDisposer: reaction(() => this.isLoading, (isLoading) => {
+                console.log(isLoading, '__isLoadingDELETING__');
+                loadingHandler?.();
+            }),
+        };
     }
 
     public async asyncAddPage() {

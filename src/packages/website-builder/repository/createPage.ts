@@ -72,6 +72,17 @@ export async function request(abortController?: any) {
     
 // }
 
+export async function deletePage(id: number) {
+    console.log(id, '__AGE_ID__');
+    const deletedPage = await prisma.page.delete({
+        where: {
+            id,
+        },
+    });
+
+    return deletedPage;
+}
+
 export async function createPage() {
     const page = await prisma.page.create({
         data: {
@@ -156,6 +167,8 @@ export async function updatePage(id: number, sectionList) {
         console.log(formattedElementList, '__formattedElementList__');
         console.log(section.id, 'section.id');
 
+        const {id: gridId, ...gridData} = section.grid;
+
         await prisma.section.upsert({
             where: {
                 id: section.id,
@@ -164,7 +177,7 @@ export async function updatePage(id: number, sectionList) {
                 page: {
                     connect: {
                         id
-                    }
+                    },
                 },
                 grid: {
                     create: {
@@ -183,7 +196,29 @@ export async function updatePage(id: number, sectionList) {
                 },
             },
             update: {
-    
+                page: {
+                    connect: {
+                        id
+                    }
+                },
+                grid: {
+                    update: {
+                        where: {
+                            id: gridId,
+                        },
+                        data: gridData,
+                    },
+                },
+                elements: {
+                    updateMany: {
+                        where: {
+                            sectionId: section.id
+                        },
+                        data: {
+                            
+                        },
+                    }
+                }
             },
         });
     }

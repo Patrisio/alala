@@ -84,7 +84,9 @@ export const Debug = ({page}) => {
 
     const savePageHandler = () => {
         // hello(pageConfigOuter);
-        updatePage(1, pageConfigOuter);
+        const pageId = Number(location.pathname.slice(1));
+        console.log(pageConfigOuter, '__pageConfigOuter__');
+        updatePage(pageId, pageConfigOuter);
     };
 
     // const renderPageHandler = () => {

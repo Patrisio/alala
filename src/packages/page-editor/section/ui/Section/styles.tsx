@@ -15,8 +15,8 @@ export const SectionContainer = observer(styled.section<{
     // margin: 0 auto;
 
     display: grid;
-    ${({gridVM}) => `grid-template-rows: repeat(${gridVM.rows}, 1fr)`};
-    ${({gridVM}) => `grid-template-columns: minmax(10px, 1fr) repeat(${gridVM.columns}, ${gridVM.cellWidth}px)`} minmax(10px, 1fr);
+    ${({gridVM}) => `grid-template-rows: repeat(${gridVM.rows}, 36px)`};
+    ${({gridVM}) => `grid-template-columns: minmax(10px, 1fr) repeat(${gridVM.columns}, ${gridVM.cellWidth}px) minmax(10px, 1fr)`};
     ${({gridVM}) => `grid-row-gap: ${gridVM.rowGap}px`};
     ${({gridVM}) => `grid-column-gap: ${gridVM.columnGap}px`};
 `);

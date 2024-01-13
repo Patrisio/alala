@@ -22,7 +22,6 @@ export const PopupForAddNewEntityInWebsiteBuilder = ({addEmptyPage}) => {
     const open = Boolean(anchor);
     const id = open ? 'simple-popup' : undefined;
 
-
     const createPageHandler = async () => {
         const res = await createPage();
         console.log(res, '__VIDDD__');

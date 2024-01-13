@@ -42,7 +42,7 @@ model Element {
   type       ELEMENT_TYPE
   Section    Section      @relation(fields: [sectionId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   sectionId  Int          
-  position   Position     @relation(fields: [positionId], references: [id])
+  position   Position     @relation(fields: [positionId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   positionId Int          @unique
 }
 

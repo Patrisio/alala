@@ -2,8 +2,11 @@
 
 import {Grid} from '../../components/grid';
 import {SectionContainer} from './styles';
-import {observer} from 'mobx-react';
 import {Shape, Button, Image, Text, Form} from '../../../library/elements';
+import {AddElement} from '../../features';
+import {RightControls} from './components';
+
+import {observer} from 'mobx-react';
 import {useRef} from 'react';
 
 export const Section = observer(({vm}) => {
@@ -15,6 +18,9 @@ export const Section = observer(({vm}) => {
             <SectionContainer
                 gridVM={vm.gridVM}
             >
+                <AddElement />
+                <RightControls />
+
                 <Grid
                     vm={vm.gridVM}
                 />

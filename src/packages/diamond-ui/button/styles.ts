@@ -1,26 +1,75 @@
 import {Button as BaseButton} from '@mui/base/Button';
 import {styled} from '@mui/system';
 
-export const StyledButton = styled(BaseButton)<{$hasChildren: boolean}>`
-    border: none;
+const commonStyles = `
     justify-content: center;
     align-items: center;
     display: flex;
-    border-radius: 4px;
     color: #313131;
     cursor: pointer;
     user-select: none;
     letter-spacing: .5px;
     text-transform: uppercase;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
     height: 37px;
-    background-color: transparent;
-    ${({$hasChildren}) => `padding: 0 ${$hasChildren ? 5 : 13}px;`};
-    ${({$hasChildren}) => `width: ${$hasChildren ? '36px' : 'auto'};`};
-    ${({$hasChildren}) => `height: ${$hasChildren ? '36px' : 'auto'};`};
+`;
 
-    &:hover {
-        background-color: #f2f2f2;
-    }
+export const StyledButton = styled(BaseButton)<{$hasChildren: boolean, $type: string}>`
+    ${({$type}) => {
+        if ($type === 'SOLID') {
+            return `
+                ${commonStyles}
+                border: 3px solid #FFF;
+                width: max-content;
+                border-radius: 10px;
+
+                ${({$hasChildren}) => `padding: 0 ${$hasChildren ? 5 : 13}px`};
+                ${({$hasChildren}) => `width: ${$hasChildren ? '36px' : 'auto'}`};
+                ${({$hasChildren}) => `height: ${$hasChildren ? '36px' : 'auto'}`};
+
+                padding: 22px 13px;
+                background: #FAF8F8;
+
+                &:hover {
+                    background-color: #EFEFEF;
+                }
+            `;
+        }
+
+        if ($type === 'OUTLINE') {
+            return `
+                ${commonStyles}
+                border: 1px solid #EFEFEF;
+                width: max-content;
+                border-radius: 3px;
+
+                ${({$hasChildren}) => `padding: 0 ${$hasChildren ? 5 : 13}px`};
+                ${({$hasChildren}) => `width: ${$hasChildren ? '36px' : 'auto'}`};
+                ${({$hasChildren}) => `height: ${$hasChildren ? '36px' : 'auto'}`};
+
+                padding: 22px 13px;
+                background: #FFF;
+
+                &:hover {
+                    background-color: #EFEFEF;
+                }
+            `;
+        }
+        
+        return `
+            ${commonStyles}
+            border: none;
+            border-radius: 4px;
+            background-color: transparent;
+
+            ${({$hasChildren}) => `padding: 0 ${$hasChildren ? 5 : 13}px`};
+            ${({$hasChildren}) => `width: ${$hasChildren ? '36px' : 'auto'}`};
+            ${({$hasChildren}) => `height: ${$hasChildren ? '36px' : 'auto'}`};
+
+            &:hover {
+                background-color: #f2f2f2;
+            }
+        `;
+    }};
 `;

@@ -122,21 +122,22 @@ export async function hello(sectionList) {
     const positionIds = [];
 
     for (const position of positionList) {
+        const {rowStart, rowEnd, columnStart, columnEnd} = position;
         const prismaPosition = await prisma.position.upsert({
             where: {
                 id: position.id,
             },
             create: {
-                rowStart: 3,
-                rowEnd: 5,
-                columnStart: 5,
-                columnEnd: 10,
+                rowStart,
+                rowEnd,
+                columnStart,
+                columnEnd,
             },
             update: {
-                rowStart: 1,
-                rowEnd: 8,
-                columnStart: 9,
-                columnEnd: 15,
+                rowStart,
+                rowEnd,
+                columnStart,
+                columnEnd,
             },
         });
 
@@ -149,7 +150,8 @@ export async function hello(sectionList) {
 }
 
 export async function updatePage(id: number, sectionList) {
-    const positionIds = await hello(sectionList);
+    const positionIds = await hello(sectionList, );
+    console.log(id, '__PAGE_IDDD__');
     console.log(sectionList, '__LIST__')
     console.log(positionIds, '__positionIds__');
     for (const section of sectionList) {
@@ -169,11 +171,55 @@ export async function updatePage(id: number, sectionList) {
 
         const {id: gridId, ...gridData} = section.grid;
 
-        await prisma.section.upsert({
+        const isExistSection = await prisma.section.findUnique({
             where: {
                 id: section.id,
             },
-            create: {
+        });
+
+        if (isExistSection) {
+            await prisma.section.update({
+                where: {
+                    id: section.id,
+                },
+                data: {
+                    page: {
+                        connect: {
+                            id
+                        }
+                    },
+                    grid: {
+                        update: {
+                            where: {
+                                id: gridId,
+                            },
+                            data: gridData,
+                        },
+                    },
+                },
+            });
+
+            for (const element of section.elements) {
+                await prisma.element.update({
+                    where: {
+                        id: element.id,
+                    },
+                    data: {
+                        ...element,
+                        Section: {
+                            connect: {
+                                id: section.id,
+                            }
+                        }
+                    },
+                });
+            }
+
+            return;
+        }
+
+        await prisma.section.create({
+            data: {
                 page: {
                     connect: {
                         id
@@ -194,31 +240,6 @@ export async function updatePage(id: number, sectionList) {
                         data: formattedElementList,
                     },
                 },
-            },
-            update: {
-                page: {
-                    connect: {
-                        id
-                    }
-                },
-                grid: {
-                    update: {
-                        where: {
-                            id: gridId,
-                        },
-                        data: gridData,
-                    },
-                },
-                elements: {
-                    updateMany: {
-                        where: {
-                            sectionId: section.id
-                        },
-                        data: {
-                            
-                        },
-                    }
-                }
             },
         });
     }

@@ -1,4 +1,20 @@
 import {styled} from '@mui/system';
+import {observer} from 'mobx-react';
+
+export const AddElementContainer = observer(styled('div')<{$sectionVM: any}>`
+    ${({$sectionVM}) => {
+        const top = $sectionVM.HTMLElement ? $sectionVM.HTMLElement?.getBoundingClientRect().top + 20 : 20;
+
+        return `
+            top: ${$sectionVM.isHovered ? top : top - 20}px;
+        `;
+    }};
+    ${({$sectionVM}) => `visibility: ${$sectionVM.isHovered ? 'visible' : 'hidden'}`};
+    ${({$sectionVM}) => `opacity: ${$sectionVM.isHovered ? 1 : 0}`};
+    position: fixed;
+    left: 20px;
+    transition: all .3s;
+`);
 
 export const PopupBody = styled('div')`
     width: max-content;

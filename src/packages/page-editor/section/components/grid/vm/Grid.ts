@@ -5,7 +5,7 @@ import {GRID_CELL_HEIGHT, EDGE_MARGIN, EDGE_COLUMNS_COUNT} from '../ui/Grid/cons
 
 export class Grid {
     public clientWidth = document.documentElement.clientWidth;
-    private restEdgePartWidth = (this.clientWidth - this.gridWidth) / 2;
+    public restEdgePartWidth = (this.clientWidth - this.gridWidth) / 2;
 
     constructor(
         private rows: number = 10,

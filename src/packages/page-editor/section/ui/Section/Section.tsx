@@ -3,24 +3,39 @@
 import {Grid} from '../../components/grid';
 import {SectionContainer} from './styles';
 import {Shape, Button, Image, Text, Form} from '../../../library/elements';
-import {AddElement} from '../../features';
-import {RightControls} from './components';
 
 import {observer} from 'mobx-react';
-import {useRef} from 'react';
+import {useRef, useEffect} from 'react';
 
 export const Section = observer(({vm}) => {
     const anchor = useRef(null);
 
+    useEffect(() => {
+        if (!anchor) return;
+        vm.setHTMLElementRef(anchor);
+
+        const sectionElement = anchor.current;
+        const mouseoverListener = sectionElement.addEventListener('mouseover', () => {
+            vm.isHovered = true;
+        });
+        const mouseoutListener = sectionElement.addEventListener('mouseout', () => {
+            vm.isHovered = false;
+        });
+
+        return () => {
+            sectionElement.removeEventListener('mouseover', mouseoverListener);
+            sectionElement.removeEventListener('mouseout', mouseoutListener);
+        };
+    }, [anchor]);
+
     return (
         <>
-            <div ref={anchor}></div>
+            <div ref={anchor} />
             <SectionContainer
                 gridVM={vm.gridVM}
+                ref={anchor}
             >
-                <AddElement />
-                <RightControls />
-
+                {vm.plugins}
                 <Grid
                     vm={vm.gridVM}
                 />

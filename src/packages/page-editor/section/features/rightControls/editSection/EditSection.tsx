@@ -1,6 +1,6 @@
-import {ButtonUI, IconUI} from '../../../../../../../diamond-ui';
+import {ButtonUI, IconUI} from '../../../../../diamond-ui';
 
-export const DeleteSection = () => {
+export const EditSection = () => {
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         console.log(event.currentTarget, 'event.currentTarget');
     };
@@ -9,10 +9,10 @@ export const DeleteSection = () => {
         <ButtonUI
             aria-describedby={'edit-section'}
             onClick={handleClick}
-            contentLeft={<IconUI name={'trash'} />}
-            text={'remove'}
-            style={{width: '100%'}}
+            contentLeft={<IconUI name={'pencil'} />}
+            text={'edit section'}
             type={'OUTLINE'}
+            style={{width: '100%'}}
         />
     );
 };

@@ -3,9 +3,9 @@ import {EditSection} from './editSection';
 import {DeleteSection} from './deleteSection';
 import {MoreSectionControls} from './MoreSectionControls';
 
-export const RightControls = () => {
+export const RightControls = ({sectionVM}) => {
     return (
-        <RightControlsContainer>
+        <RightControlsContainer $sectionVM={sectionVM}>
             <EditSection />
             <MoreSectionControls />
             <DeleteSection />

@@ -1,5 +1,5 @@
 import {MoreSectionControlsContainer} from './styles';
-import {ButtonUI, IconUI} from '../../../../../../../diamond-ui';
+import {ButtonUI, IconUI} from '../../../../../diamond-ui';
 
 export const MoreSectionControls = () => {
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {

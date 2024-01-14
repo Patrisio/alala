@@ -1,14 +1,17 @@
 import {DragModel} from './models/DragModel';
 import {ResizeModel} from './models/ResizeModel';
+import {AddElement, RightControls, AddSection} from './features';
 
 import {makeAutoObservable} from 'mobx';
-import {v4 as uuid} from 'uuid';
 
 export class Section {
     public id = Math.round(Math.random() * 100000);
     private elements = new Map();
     public dragModel;
     public resizeModel;
+    public HTMLElementRef;
+    public isHovered = false;
+    public plugins = [];
 
     constructor(
         private gridViewModel: any,
@@ -22,6 +25,17 @@ export class Section {
         this.resizeModel = new ResizeModel(
             this.gridViewModel
         );
+
+        this.plugins = [
+            <AddElement sectionVM={this} />,
+            <RightControls sectionVM={this} />,
+            <AddSection sectionVM={this} where={'top'}/>,
+            <AddSection sectionVM={this} where={'bottom'}/>,
+        ];
+    }
+
+    setHTMLElementRef(HTMLElementRef) {
+        this.HTMLElementRef = HTMLElementRef;
     }
 
     addElement(elementUnitViewModel: any) {
@@ -55,5 +69,10 @@ export class Section {
 
     get gridVM() {
         return this.gridViewModel;
+    }
+
+    get HTMLElement() {
+        if (!this.HTMLElementRef) return;
+        return this.HTMLElementRef.current;
     }
 }

@@ -56,6 +56,23 @@ export const StyledButton = styled(BaseButton)<{$hasChildren: boolean, $type: st
                 }
             `;
         }
+
+        if ($type === 'BLUE') {
+            return `
+                ${commonStyles}
+                border: 1px solid #76B6FF;
+                width: max-content;
+                border-radius: 10px;
+
+                padding: 10px 13px;
+                background: #027AFF;
+                color: #FFF;
+
+                &:hover {
+                    background-color: #0069DE;
+                }
+            `;
+        }
         
         return `
             ${commonStyles}

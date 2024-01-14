@@ -1,1 +1,0 @@
-export {RightControls} from './RightControls';

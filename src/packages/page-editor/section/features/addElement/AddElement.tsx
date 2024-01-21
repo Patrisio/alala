@@ -7,6 +7,8 @@ import {useState} from 'react';
 import {observer} from 'mobx-react';
 import {v4 as uuid} from 'uuid';
 
+import {elementList} from './constants';
+
 export const AddElement = observer(({sectionVM}) => {
     const [anchor, setAnchor] = useState<null | HTMLElement>(null);
 
@@ -15,7 +17,7 @@ export const AddElement = observer(({sectionVM}) => {
         setAnchor(anchor ? null : event.currentTarget);
     };
 
-    const closePopup = (event: React.MouseEvent<HTMLElement>) => {
+    const closePopup = () => {
         setAnchor(null);
     };
 
@@ -23,8 +25,12 @@ export const AddElement = observer(({sectionVM}) => {
     const id = open ? uuid() : undefined;
 
     return (
-        <ClickAwayListener onClickAway={closePopup}>
-            <AddElementContainer $sectionVM={sectionVM}>
+        <ClickAwayListener
+            onClickAway={closePopup}
+        >
+            <AddElementContainer
+                $sectionVM={sectionVM}
+            >
                 {
                     <ButtonUI
                         aria-describedby={id}
@@ -40,17 +46,26 @@ export const AddElement = observer(({sectionVM}) => {
                     open={open}
                     anchor={anchor}
                     placement={'bottom'}
+                    style={{zIndex: 9999}}
+                    withTransition
                 >
                     <PopupBody>
-                        <ul>
-                            <li>hello world</li>
-                            <li>hello world</li>
-                            <li>hello world</li>
-                            <li>hello world</li>
-                            <li>hello world</li>
-                            <li>hello world</li>
-                            <li>hello world</li>
-                        </ul>
+                        {elementList.map((element) => {
+                            return (
+                                <ButtonUI
+                                    contentLeft={<element.icon />}
+                                    text={element.name}
+                                    onClick={() => {
+                                        element.action(sectionVM);
+                                        closePopup();
+                                    }}
+                                    style={{
+                                        width: '50%',
+                                        justifyContent: 'flex-start',
+                                    }}
+                                />
+                            );
+                        })}
                     </PopupBody>
                 </BasePopup>
             </AddElementContainer>

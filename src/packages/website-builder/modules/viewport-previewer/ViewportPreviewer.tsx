@@ -1,12 +1,10 @@
 import {ViewportPreviewerContainer} from './styles';
 import {ViewportPreviewerVM} from './vm';
 
-import {useMemo} from 'react';
+import {useState} from 'react';
 
 export const ViewportPreviewer = () => {
-    const viewportPreviewer = useMemo(() => {
-        return new ViewportPreviewerVM();
-    }, []);
+    useState(() => new ViewportPreviewerVM());
 
     return (
         <ViewportPreviewerContainer

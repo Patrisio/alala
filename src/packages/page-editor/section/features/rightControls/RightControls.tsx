@@ -6,9 +6,9 @@ import {MoreSectionControls} from './MoreSectionControls';
 export const RightControls = ({sectionVM}) => {
     return (
         <RightControlsContainer $sectionVM={sectionVM}>
-            <EditSection />
-            <MoreSectionControls />
-            <DeleteSection />
+            <EditSection sectionVM={sectionVM} />
+            <MoreSectionControls sectionVM={sectionVM} />
+            <DeleteSection sectionVM={sectionVM} />
         </RightControlsContainer>
     );
 };

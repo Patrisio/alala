@@ -6,6 +6,7 @@ import {Shape, Button, Image, Text, Form} from '../../../library/elements';
 
 import {observer} from 'mobx-react';
 import {useRef, useEffect} from 'react';
+import throttle from 'lodash.throttle';
 
 export const Section = observer(({vm}) => {
     const anchor = useRef(null);
@@ -22,9 +23,15 @@ export const Section = observer(({vm}) => {
             vm.isHovered = false;
         });
 
+        const scrollListener = window.addEventListener('scroll', throttle(() => {
+            const boundingClientRect = sectionElement.getBoundingClientRect();
+            vm.updateBoundingClientRect(boundingClientRect);
+        }, 100));
+
         return () => {
             sectionElement.removeEventListener('mouseover', mouseoverListener);
             sectionElement.removeEventListener('mouseout', mouseoutListener);
+            window.removeEventListener('scroll', scrollListener);
         };
     }, [anchor]);
 

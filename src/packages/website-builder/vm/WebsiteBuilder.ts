@@ -3,6 +3,7 @@
 import {PageEditorVM, Converter} from '../../page-editor';
 import {cl, EVENTS} from '../../communication-layer';
 import {createPage, deletePage} from '../repository';
+import {LayoutMode} from './enums';
 
 import {makeAutoObservable, reaction} from 'mobx';
 
@@ -11,6 +12,7 @@ export class WebsiteBuilder {
     public pageEditor: any;
 
     public isLoading = false;
+    public layoutMode = LayoutMode.default;
 
     constructor(
         private id: number = Math.round(Math.random() * 1000000),
@@ -20,6 +22,9 @@ export class WebsiteBuilder {
         makeAutoObservable(this);
 
         cl.register('WebsiteBuilder', this);
+        cl.on(EVENTS.UPDATE_LAYOUT_MODE, ({layoutMode}) => {
+            this.layoutMode = layoutMode;
+        });
 
         this.fillOutPagesMap(this.pages);
 
@@ -73,14 +78,11 @@ export class WebsiteBuilder {
         };
     }
 
+    updateLayoutMode(layoutMode: LayoutMode) {
+        this.layoutMode = layoutMode;
+    }
+
     get pageList() {
         return [...this.pagesMap.values()];
     }
 }
-
-// const vm = new WebsiteBuilder();
-
-
-// reaction(() => vm.isLoading, (isLoading) => {
-//     console.log(isLoading, '__isLoading__');
-// });

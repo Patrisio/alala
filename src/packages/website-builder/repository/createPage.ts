@@ -301,10 +301,10 @@ export async function savePage() {
     return page;
 }
 
-export async function getWebsite() {
+export async function getWebsite(id) {
     const page = await prisma.website.findUnique({
 		where: {
-			id: 2,
+			id,
 		},
         include: {
             pages: {
@@ -327,14 +327,47 @@ export async function getWebsite() {
     return page;
 }
 
-export async function createEmptyWebsite() {
+export async function getWebsiteList() {
+    const websiteList = await prisma.website.findMany({
+        include: {
+            pages: {
+                include: {
+                    sections: {
+                        include: {
+                            grid: true,
+                            elements: {
+                                include: {
+                                    position: true
+                                }
+                            }
+                        }
+                    },
+                }
+            }
+        },
+	});
+
+    return websiteList;
+}
+
+export async function createEmptyWebsite(name) {
     const page = await prisma.website.create({
 		data: {
-            name: 'Website for sales',
+            name,
         },
 	});
 
     return page;
+}
+
+export async function deleteWebsite(id) {
+    const website = await prisma.website.delete({
+		where: {
+            id,
+        },
+	});
+
+    return website;
 }
 
 export async function createWebsite() {

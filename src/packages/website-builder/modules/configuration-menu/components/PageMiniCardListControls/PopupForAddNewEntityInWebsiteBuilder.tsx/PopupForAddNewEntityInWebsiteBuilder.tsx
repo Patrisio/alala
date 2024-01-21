@@ -45,7 +45,9 @@ export const PopupForAddNewEntityInWebsiteBuilder = ({addEmptyPage}) => {
     }, [websiteBuilder]);
 
     return (
-        <ClickAwayListener onClickAway={closePopup}>
+        <ClickAwayListener
+            onClickAway={closePopup}
+        >
             <div>
                 <ButtonUI
                     aria-describedby={id}

@@ -32,25 +32,25 @@ export const Debug = ({page}) => {
     };
 
 
-    const addShapeHandler = () => {
-        section.addElement(new ShapeVM(section.gridVM));
-    };
+    // const addShapeHandler = () => {
+    //     section.addElement(new ShapeVM(section.gridVM));
+    // };
 
-    const addButtonHandler = () => {
-        section.addElement(new ButtonVM(section.gridVM));
-    };
+    // const addButtonHandler = () => {
+    //     section.addElement(new ButtonVM(section.gridVM));
+    // };
 
-    const addImageHandler = () => {
-        section.addElement(new ImageVM(section.gridVM));
-    };
+    // const addImageHandler = () => {
+    //     section.addElement(new ImageVM(section.gridVM));
+    // };
 
-    const addTextHandler = () => {
-        section.addElement(new TextVM(section.gridVM));
-    };
+    // const addTextHandler = () => {
+    //     section.addElement(new TextVM(section.gridVM));
+    // };
 
-    const addFormHandler = () => {
-        section.addElement(new FormVM(section.gridVM));
-    };
+    // const addFormHandler = () => {
+    //     section.addElement(new FormVM(section.gridVM));
+    // };
 
     // const addRowHandler = () => {
     //     gridViewModel.rows = gridViewModel.rows + 1;
@@ -79,7 +79,7 @@ export const Debug = ({page}) => {
     };
 
     const getCreateEmptyWebsiteHandler = () => {
-        createEmptyWebsite();
+        createEmptyWebsite('test name');
     };
 
     const savePageHandler = () => {
@@ -111,11 +111,11 @@ export const Debug = ({page}) => {
 
             {/* <button onClick={addRowHandler}>add row</button> */}
 
-            <button onClick={addShapeHandler}>add shape</button>
+            {/* <button onClick={addShapeHandler}>add shape</button>
             <button onClick={addButtonHandler}>add button</button>
             <button onClick={addImageHandler}>add image</button>
             <button onClick={addTextHandler}>add text</button>
-            <button onClick={addFormHandler}>add form</button>
+            <button onClick={addFormHandler}>add form</button> */}
             <button onClick={addSectionHandler}>add section</button>
             <button onClick={getConfigHandler}>get config</button>
             <button onClick={getLoadPageHandler}>load Page</button>

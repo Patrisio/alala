@@ -5,7 +5,7 @@ import {Converter} from '../../packages/page-editor';
 import dynamic from 'next/dynamic';
 import {useEffect, use, Suspense} from 'react';
 
-const WebsiteBuilderPage = async () => {
+const WebsiteBuilderPage = async ({searchParams: {websiteId}}) => {
 	// const WebsiteBuilder = dynamic(() => import('../../packages/website-builder').then((module) => module.WebsiteBuilder), { ssr: false });
 	console.log('__ALOGA,111');
 	// const res = await request();
@@ -21,10 +21,9 @@ const WebsiteBuilderPage = async () => {
 	// 	}
 	// 	request();
 	// }, []);
-	let page;
 
-	const hello = getWebsite()
-	console.log(hello, '__HELLO__6');
+	const website = getWebsite(Number(websiteId))
+	console.log(website, '__HELLO__6');
 
 	// if (website) {
 	// 	const pageList = website.pages;
@@ -35,7 +34,7 @@ const WebsiteBuilderPage = async () => {
 	
 	return (
 		<Suspense fallback={<p>waiting for message...</p>}>
-			<WebsiteBuilder website={hello}/>
+			<WebsiteBuilder website={website}/>
 		</Suspense>
 	)
 }

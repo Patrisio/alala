@@ -38,6 +38,65 @@ export class Page {
         return section;
     }
 
+    cloneSection(id: number) {
+        
+    }
+
+    removeSection(id: number) {
+        this.sectionsMap.delete(id);
+    }
+
+    moveSection(id: number, position: 'down' | 'up') {
+        const sectionEntries = [...this.sectionsMap.entries()];
+        const foundIndex = sectionEntries.findIndex((entry) => {
+            const sectionId = entry[0];
+            return sectionId === id;
+        });
+
+        if (foundIndex < 0) throw new Error(`Не найдена секция по указанному id: ${id}`);
+
+        const newIndex = position === 'down'
+            ? foundIndex + 1
+            : foundIndex - 1;
+
+        function swapElements(arr, i1, i2) {
+            arr[i1] = arr.splice(i2, 1, arr[i1])[0];
+        }
+        
+        swapElements(sectionEntries, foundIndex, newIndex);
+
+        this.sectionsMap.clear();
+
+        for (const [sectionId, section] of sectionEntries) {
+            this.sectionsMap.set(sectionId, section);
+        }
+    }
+
+    addSectionToPosition(id: number, position: 'bottom' | 'top') {
+        const sectionEntries = [...this.sectionsMap.entries()];
+        const foundIndex = sectionEntries.findIndex((entry) => {
+            const sectionId = entry[0];
+            return sectionId === id;
+        });
+
+        if (foundIndex < 0) throw new Error(`Не найдена секция по указанному id: ${id}`);
+
+        const newIndex = position === 'bottom'
+            ? foundIndex + 1
+            : foundIndex;
+
+        const gridVM = new GridVM();
+        const section = new SectionVM(gridVM);
+
+        sectionEntries.splice(newIndex, 0, [section.id, section]);
+
+        this.sectionsMap.clear();
+
+        for (const [sectionId, section] of sectionEntries) {
+            this.sectionsMap.set(sectionId, section);
+        }
+    }
+
     getSections() {
         return this.sectionsMap;
     }

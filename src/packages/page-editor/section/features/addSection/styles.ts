@@ -18,4 +18,5 @@ export const AddSectionContainer = observer(styled('div')<{$sectionVM: any; $whe
     position: absolute;
     left: 50%;
     transition: all .3s;
+    z-index: 9999;
 `);

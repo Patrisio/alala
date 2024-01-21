@@ -1,5 +1,6 @@
 import {ButtonUI} from '../../../../diamond-ui';
 import {AddSectionContainer} from './styles';
+import {cl, EVENTS} from '../../../../communication-layer';
 
 import {useState} from 'react';
 import {observer} from 'mobx-react';
@@ -11,6 +12,7 @@ export const AddSection = observer(({sectionVM, where}) => {
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         console.log(event.currentTarget, 'event.currentTarget');
         setAnchor(anchor ? null : event.currentTarget);
+        cl.emit(EVENTS.ADD_SECTION_TO_POSITION, {id: sectionVM.id, position: where});
     };
 
     const open = Boolean(anchor);

@@ -1,6 +1,6 @@
 import {ButtonUI, IconUI} from '../../../../../diamond-ui';
 
-export const EditSection = () => {
+export const EditSection = ({sectionVM}) => {
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         console.log(event.currentTarget, 'event.currentTarget');
     };

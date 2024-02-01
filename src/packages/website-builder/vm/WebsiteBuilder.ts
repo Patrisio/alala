@@ -12,7 +12,7 @@ export class WebsiteBuilder {
     public pageEditor: any;
 
     public isLoading = false;
-    public layoutMode = LayoutMode.default;
+    public layoutMode = LayoutMode.right;
 
     constructor(
         private id: number = Math.round(Math.random() * 1000000),

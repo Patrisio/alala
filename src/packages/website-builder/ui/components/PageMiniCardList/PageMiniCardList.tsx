@@ -1,6 +1,6 @@
 'use client'
 
-import {PageMiniCard} from '../PageMiniCard';
+import {PageMiniCard} from '../../../modules/configuration-menu/components/PageMiniCard';
 
 import {observer} from 'mobx-react';
 

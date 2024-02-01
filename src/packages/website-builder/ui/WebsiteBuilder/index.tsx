@@ -4,6 +4,8 @@ import {ConfigurationMenu, FrameToolbar} from '../../modules';
 import {ViewportPreviewerWrapper} from './styles';
 import {WebsiteBuilderVM} from '../../vm';
 
+import {PageMiniCardListControls, PageMiniCardList} from '../components';
+
 import {observer} from 'mobx-react';
 import {useState, useEffect, use} from 'react';
 import dynamic from 'next/dynamic';
@@ -33,17 +35,36 @@ export const WebsiteBuilder = observer(({website: websitePromise}) => {
         <>
             <div style={{
                 display: 'flex',
+                justifyContent: 'space-between',
             }}>
                 <ConfigurationMenu
-                    open={websiteBuilderVM?.layoutMode === 'default'}
-                    addEmptyPage={async () => await websiteBuilderVM?.asyncAddPage()}
-                    deletePage={(id: number) => async () => await websiteBuilderVM?.asyncDeletePage(id)}
-                    pageList={websiteBuilderVM?.pageList ?? []}
-                />
-                <ViewportPreviewerWrapper open={websiteBuilderVM?.layoutMode === 'default'}>
+                    title={'Pages'}
+                    open={websiteBuilderVM?.layoutMode === 'right'}
+                    // addEmptyPage={async () => await websiteBuilderVM?.asyncAddPage()}
+                    // deletePage={(id: number) => async () => await websiteBuilderVM?.asyncDeletePage(id)}
+                    // pageList={websiteBuilderVM?.pageList ?? []}
+                >
+                    <PageMiniCardListControls addEmptyPage={async () => await websiteBuilderVM?.asyncAddPage()}/>
+                    <PageMiniCardList
+                        pageList={websiteBuilderVM?.pageList ?? []}
+                        deletePage={(id: number) => async () => await websiteBuilderVM?.asyncDeletePage(id)}
+                    />
+                </ConfigurationMenu>
+
+                <ViewportPreviewerWrapper layout={websiteBuilderVM?.layoutMode}>
                     <FrameToolbar />
                     <ViewportPreviewer />
                 </ViewportPreviewerWrapper>
+
+                <ConfigurationMenu
+                    title={'Styles'}
+                    open={websiteBuilderVM?.layoutMode === 'left'}
+                    // addEmptyPage={async () => await websiteBuilderVM?.asyncAddPage()}
+                    // deletePage={(id: number) => async () => await websiteBuilderVM?.asyncDeletePage(id)}
+                    // pageList={websiteBuilderVM?.pageList ?? []}
+                >
+                    <div>Styles Panel</div>
+                </ConfigurationMenu>
             </div>
         </>
     );

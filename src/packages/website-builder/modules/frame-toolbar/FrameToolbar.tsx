@@ -26,7 +26,7 @@ export const FrameToolbar = () => {
                 <ButtonUI
                     aria-describedby={'edit-section'}
                     onClick={() => {
-                        emitUpdateLayoutModeEvent('edit');
+                        emitUpdateLayoutModeEvent('fit');
                         setIsEditingLayoutMode(true);
                     }}
                     text={'edit'}
@@ -37,7 +37,7 @@ export const FrameToolbar = () => {
                     <ButtonUI
                         aria-describedby={'edit-section'}
                         onClick={() => {
-                            emitUpdateLayoutModeEvent('default');
+                            emitUpdateLayoutModeEvent('right');
                             setIsEditingLayoutMode(false);
                         }}
                         text={'exit'}
@@ -57,7 +57,10 @@ export const FrameToolbar = () => {
             <RightControlsWrapper>
                 <ButtonUI
                     aria-describedby={'edit-section'}
-                    onClick={() => {}}
+                    onClick={() => {
+                        emitUpdateLayoutModeEvent('left');
+                        setIsEditingLayoutMode(false);
+                    }}
                     style={{width: 36, height: 36, marginRight: 11}}
                 >
                     <IconUI name={'brush'} />

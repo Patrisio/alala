@@ -5,7 +5,7 @@ import {PositionerUnitViewModel} from '../components/positioner/PositionerUnitVi
 import {OutlineUnitViewModel} from '../components/outline/OutlineUnitViewModel';
 import {ElementType} from '../components/positioner/types';
 
-import {makeObservable, toJS, action} from 'mobx';
+import {makeObservable, toJS, action, observable} from 'mobx';
 import {v4 as uuid} from 'uuid';
 
 export class Element {
@@ -13,10 +13,12 @@ export class Element {
     public sharedState = new SharedState();
     public positionerUnitViewModel: any;
     public outlineUnitViewModel: any;
+    public isEditorToolbarOpened = false;
+    public isElementToolbarOpened = false;
 
     constructor(
         private gridViewModel: any,
-        private width: number,
+        protected width: number,
         private height: number,
         private minWidth: number,
         private minHeight: number,
@@ -26,6 +28,8 @@ export class Element {
         makeObservable(this, {
             updateElementWidth: action.bound,
             updateElementHeight: action.bound,
+            isEditorToolbarOpened: observable,
+            isElementToolbarOpened: observable,
         });
 
         this.positionerUnitViewModel = new PositionerUnitViewModel({...this.position});
@@ -63,5 +67,21 @@ export class Element {
 
     updateElementHeight(height: number) {
         this.height = height;
+    }
+
+    openEditorToolbar() {
+        this.isEditorToolbarOpened = true;
+    }
+
+    closeEditorToolbar() {
+        this.isEditorToolbarOpened = false;
+    }
+
+    openElementToolbar() {
+        this.isElementToolbarOpened = true;
+    }
+
+    closeElementToolbar() {
+        this.isElementToolbarOpened = false;
     }
 }

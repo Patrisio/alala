@@ -1,7 +1,7 @@
-import {ButtonUI, IconUI} from '../../../../../../diamond-ui';
+import {ButtonUI, IconUI} from '../../../../../diamond-ui';
 import {PopupBody} from './styles';
-import {createPage} from '../../../../../repository';
-import {cl, EVENTS} from '../../../../../../communication-layer';
+import {createPage} from '../../../../repository';
+import {cl, EVENTS} from '../../../../../communication-layer';
 
 import {Unstable_Popup as BasePopup} from '@mui/base/Unstable_Popup';
 import {ClickAwayListener} from '@mui/base/ClickAwayListener';

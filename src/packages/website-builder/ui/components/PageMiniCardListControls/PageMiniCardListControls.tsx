@@ -1,4 +1,4 @@
-import {ButtonUI, IconUI, H4, GroupedListItem} from '../../../../../diamond-ui';
+import {ButtonUI, IconUI, H4, GroupedListItem} from '../../../../diamond-ui';
 import {PageMiniCardListControlsContainer} from './styles';
 import {PopupForAddNewEntityInWebsiteBuilder} from './PopupForAddNewEntityInWebsiteBuilder.tsx';
 

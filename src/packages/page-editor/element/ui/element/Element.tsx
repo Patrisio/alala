@@ -2,10 +2,31 @@
 
 import {FloatOutline} from './components/FloatOutline';
 import {useMoveableData} from './hooks/useMoveableData';
+import {ElementToolbar, ElementEditor} from './ables';
 
-import Moveable from 'react-moveable';
-import {useMemo, useRef, useEffect, useCallback} from 'react';
+import Moveable, {makeAble} from 'react-moveable';
+import {useMemo, useRef, useEffect, useCallback, useState} from 'react';
 import {observer} from 'mobx-react';
+import OutsideClickHandler from 'react-outside-click-handler';
+
+import {ClickAwayListener} from '@mui/base';
+import {Unstable_Popup as BasePopup} from '@mui/base/Unstable_Popup';
+import {ButtonUI, IconUI} from '../../../../diamond-ui';
+import styled from 'styled-components';
+
+export const PopupBody = styled('div')`
+    width: max-content;
+    padding: 12px 16px;
+    margin: 8px;
+    border-radius: 8px;
+    border: 1px solid #DAE2ED;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 0.1);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    z-index: 1;
+`;
 
 const config = {
     attributes: true,
@@ -24,6 +45,17 @@ export const Element = observer(({
     useResizeObserver = false,
     children,
 }) => {
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        console.log(elementUnitViewModel.isElementToolbarOpened, elementUnitViewModel.isEditorToolbarOpened);
+        if (elementUnitViewModel.isElementToolbarOpened || elementUnitViewModel.isEditorToolbarOpened) return;
+
+        elementUnitViewModel.openElementToolbar();
+    };
+
+    useEffect(() => {
+        console.log('elementUnitViewModel.isElementToolbarOpened', elementUnitViewModel.isElementToolbarOpened)
+    }, [elementUnitViewModel.isElementToolbarOpened]);
+
     const moveableRef = useRef(null);
     const moveableData = useMoveableData(moveableRef);
 
@@ -102,20 +134,43 @@ export const Element = observer(({
         };
     }, [recalculate]);
 
+    const closeAllToolbars = () => {
+        console.log('__CLOSE__');
+
+        if (!(elementUnitViewModel.isElementToolbarOpened || elementUnitViewModel.isEditorToolbarOpened)) return;
+
+        elementUnitViewModel.closeElementToolbar();
+        elementUnitViewModel.closeEditorToolbar();
+    };
+    console.log(moveableRef, '__REDDDD__');
     return (
         <>
             {children}
             <FloatOutline
                 elementUnitViewModel={elementUnitViewModel}
             />
-            <Moveable
-                ref={moveableRef}
-                target={targetRef}
-                draggable
-                resizable
-                origin={false}
-                {...moveableProps}
-            />
+            {/* <ClickAwayListener
+                onClickAway={closeAllToolbars}
+            > */}
+                <Moveable
+                    ables={[
+                        ElementEditor(elementUnitViewModel),
+                        ElementToolbar(elementUnitViewModel),
+                    ]}
+                    props={{
+                        elementToolbar: elementUnitViewModel.isElementToolbarOpened,
+                        elementEditor: elementUnitViewModel.isEditorToolbarOpened,
+                    }}
+                    ref={moveableRef}
+                    target={targetRef}
+                    draggable
+                    resizable
+                    origin={false}
+                    {...moveableProps}
+                    onClick={handleClick}
+                    className={'huiii'}
+                />
+            {/* </ClickAwayListener> */}
         </>
     );
 });

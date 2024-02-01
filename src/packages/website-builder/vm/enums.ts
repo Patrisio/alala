@@ -1,5 +1,6 @@
 export enum LayoutMode {
-    default = 'default',
-    edit = 'edit',
+    left = 'left',
+    right = 'right',
+    fit = 'fit',
     fullScreen = 'fullScreen',
 };

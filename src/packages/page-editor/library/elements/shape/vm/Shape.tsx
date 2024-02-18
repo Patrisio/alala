@@ -23,6 +23,22 @@ export class Shape extends ElementVM {
         }
     };
     public figure = 'award';
+    public strokeType = 'none';
+    public strokeColor = {
+        hex: "#000000",
+        rgb: {
+            r: 0,
+            g: 0,
+            b: 0,
+            a: 1
+        },
+        hsv: {
+            h: 259.4219653179191,
+            s: 0,
+            v: 0,
+            a: 1
+        }
+    };
 
     constructor(
         gridViewModel: any,
@@ -49,6 +65,8 @@ export class Shape extends ElementVM {
             blur: observable,
             color: observable,
             figure: observable,
+            strokeType: observable,
+            strokeColor: observable,
         });
     }
 
@@ -66,6 +84,14 @@ export class Shape extends ElementVM {
 
     setFigure(value) {
         this.figure = value;
+    }
+
+    setStrokeType(value) {
+        this.strokeType = value;
+    }
+
+    setStrokeColor(value) {
+        this.strokeColor = value;
     }
 
     renderElementEditor() {

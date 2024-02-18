@@ -27,18 +27,26 @@ export const Shape = observer(({
                 ref={targetRef}
                 style={{
                     gridArea: elementUnitViewModel.positionerUnitViewModel.gridArea,
-                    width: elementUnitViewModel.width,
-                    height: elementUnitViewModel.height,
-                    position: 'absolute',
+                    width: '100%',
+                    height: '100%',
+                    position: 'relative',
                     background: '#E6E4D5',
                     opacity: 0.6,
                 }}
             >
                 <IconUI
-                    elementUnitViewModel={elementUnitViewModel}
                     name={elementUnitViewModel.figure}
-                    width={elementUnitViewModel.width}
-                    height={elementUnitViewModel.height}
+                    width={'100%'}
+                    height={'100%'}
+                    blur={elementUnitViewModel.blur}
+                    fill={elementUnitViewModel.color.hex}
+                    strokeType={elementUnitViewModel.strokeType}
+                    strokeColor={elementUnitViewModel.strokeColor.hex}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                    }}
+                    className={'shape-svg'}
                 />
             </div>
             {/* <ShapeContainer

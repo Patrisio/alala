@@ -30,6 +30,118 @@ export default function RootLayout({
 					{/* <GlobalStyles /> */}
 					{children}
 				</StyledComponentsRegistry>
+				<svg height="0" width="0">
+					<defs>
+						<clipPath id="svgPathNewarched-window" clipPathUnits="objectBoundingBox">
+							<path d="M0.495,0 A0.505,0.336,0,0,0,0,0.329 V1 H1 V0.329 A0.505,0.336,0,0,0,0.495,0"></path>
+						</clipPath>
+						<clipPath id="svgPathNewaward" clipPathUnits="objectBoundingBox">
+							<path d="M0 0.33 A0.5 0.33, 0 0 1, 1 0.33 M1 0.33 A0.5 0.33, 0 0 1, 0 0.33 M0 0.5 H1 V1 H0 Z"></path>
+						</clipPath>
+						<clipPath id="svgPathNewbottom-left-curve" clipPathUnits="objectBoundingBox">
+							<path d="M1,0 v1 h0 A1,1,0,0,1,0,0"></path>
+						</clipPath>
+						<clipPath id="svgPathNewcircle" clipPathUnits="objectBoundingBox">
+							<path d="M0,0.5 A0.5 0.5, 0 0 1, 1 0.5 M1,0.5 A0.5 0.5, 0 0 1, 0 0.5 Z"></path>
+						</clipPath>
+						<clipPath id="svgPathNewdescending-ramp" clipPathUnits="objectBoundingBox">
+							<path d="M0,1 H1 L0,0 V1"></path>
+						</clipPath>
+						<clipPath id="svgPathNewdescending-stairs" clipPathUnits="objectBoundingBox">
+							<path d="M0.798,0.798 V0.596 H0.596 H0.596 V0.404 H0.404 H0.404 V0.202 H0.202 V0 H0 V1 H1 V0.798 H0.798"></path>
+						</clipPath>
+						<clipPath id="svgPathNewdiamond" clipPathUnits="objectBoundingBox">
+							<path d="M0.5,0 L1,0.5 L0.5,1 L0,0.5"></path>
+						</clipPath>
+						<clipPath id="svgPathNewegg" clipPathUnits="objectBoundingBox">
+							<path d="M0.502,1 C0.366,1,0.235,0.944,0.144,0.872 C0.053,0.799,0,0.715,0.002,0.609 C0.006,0.505,0.042,0.368,0.126,0.24 C0.209,0.115,0.339,0,0.502,0.003 C0.665,0,0.795,0.115,0.878,0.24 C0.962,0.368,0.999,0.505,1,0.609 C1,0.715,0.951,0.799,0.86,0.872 C0.769,0.944,0.638,1,0.502,1"></path>
+						</clipPath>
+						<clipPath id="svgPathNeweight-sided-shield" clipPathUnits="objectBoundingBox">
+							<path d="M0.5,0 L0.957,0.065,1,0.5,0.957,0.935 L0.5,1,0.043,0.935,0,0.5,0.043,0.065,0.5,0"></path>
+						</clipPath>
+						<clipPath id="svgPathNewflower" clipPathUnits="objectBoundingBox">
+							<path d="M0.622,0.852 C0.686,1.049,0.314,1.049,0.378,0.852 C0.119,1,-0.05,0.883,0.151,0.613 C-0.041,0.667,-0.041,0.333,0.151,0.387 C-0.05,0.117,0.119,-0.049,0.392,0.148 C0.314,-0.049,0.686,-0.049,0.622,0.148 C0.895,-0.049,1,0.117,0.863,0.387 C1.035,0.333,1.05,0.647,0.863,0.613 C1,0.883,0.895,1,0.622,0.852"></path>
+						</clipPath>
+						<clipPath id="svgPathNewfour-petal-flower" clipPathUnits="objectBoundingBox">
+							<path d="M0.09 0.5 A0.1 0.103 -45 0 1 0.5 0.09 A0.103 0.1 -45 0 1 0.91 0.5 A0.1 0.103 -45 0 1 0.5 0.91 A0.103 0.1 -45 0 1 0.09 0.5"></path>
+						</clipPath>
+						<clipPath id="svgPathNewfour-point-star" clipPathUnits="objectBoundingBox">
+							<path d="M0.5,0.143 L1,0,0.857,0.5 L1,1,0.5,0.857 L0,1 L0.143,0.5 L0,0 L0.5,0.143"></path>
+						</clipPath>
+						<clipPath id="svgPathNewgear" clipPathUnits="objectBoundingBox">
+							<path d="M0.525,0.024 C0.528,0.051,0.567,0.055,0.575,0.029 C0.584,-0.001,0.627,0.008,0.624,0.039 C0.621,0.066,0.657,0.078,0.671,0.054 C0.686,0.028,0.727,0.046,0.718,0.074 C0.71,0.1,0.743,0.12,0.761,0.099 C0.781,0.077,0.817,0.102,0.802,0.129 C0.788,0.152,0.817,0.178,0.84,0.162 C0.865,0.144,0.894,0.177,0.874,0.199 C0.856,0.22,0.878,0.251,0.903,0.24 C0.931,0.228,0.953,0.266,0.928,0.283 C0.906,0.3,0.921,0.335,0.948,0.329 C0.979,0.323,0.992,0.364,0.965,0.376 C0.939,0.388,0.947,0.425,0.975,0.425 C1,0.425,1,0.469,0.98,0.476 C0.952,0.482,0.952,0.52,0.98,0.525 C1,0.531,1,0.576,0.975,0.576 C0.947,0.576,0.939,0.613,0.965,0.624 C0.993,0.636,0.979,0.679,0.948,0.672 C0.921,0.666,0.906,0.701,0.928,0.717 C0.953,0.736,0.931,0.774,0.903,0.761 C0.878,0.75,0.856,0.781,0.874,0.801 C0.894,0.824,0.865,0.857,0.84,0.839 C0.817,0.823,0.789,0.848,0.802,0.872 C0.817,0.898,0.782,0.925,0.761,0.901 C0.743,0.881,0.71,0.9,0.718,0.927 C0.727,0.956,0.686,0.973,0.671,0.947 C0.657,0.923,0.621,0.935,0.624,0.962 C0.627,0.992,0.584,1,0.575,0.972 C0.567,0.946,0.528,0.95,0.525,0.977 C0.522,1,0.478,1,0.475,0.977 C0.472,0.95,0.433,0.946,0.425,0.972 C0.416,1,0.373,0.992,0.376,0.962 C0.379,0.935,0.343,0.923,0.329,0.947 C0.314,0.973,0.273,0.955,0.282,0.927 C0.29,0.9,0.257,0.881,0.239,0.901 C0.219,0.924,0.183,0.898,0.198,0.872 C0.212,0.849,0.183,0.823,0.16,0.839 C0.135,0.857,0.106,0.824,0.126,0.801 C0.144,0.781,0.122,0.75,0.097,0.761 C0.069,0.773,0.047,0.735,0.072,0.717 C0.094,0.701,0.079,0.666,0.052,0.672 C0.021,0.678,0.008,0.636,0.035,0.624 C0.061,0.613,0.053,0.576,0.025,0.576 C-0.005,0.576,-0.01,0.532,0.02,0.525 C0.048,0.519,0.048,0.481,0.02,0.476 C-0.01,0.47,-0.005,0.425,0.025,0.425 C0.053,0.425,0.061,0.388,0.035,0.376 C0.007,0.364,0.021,0.322,0.052,0.329 C0.079,0.335,0.094,0.3,0.072,0.283 C0.047,0.265,0.069,0.227,0.097,0.24 C0.122,0.251,0.144,0.22,0.126,0.199 C0.106,0.177,0.135,0.144,0.16,0.162 C0.183,0.178,0.211,0.153,0.198,0.129 C0.183,0.102,0.218,0.076,0.239,0.099 C0.257,0.12,0.29,0.1,0.282,0.074 C0.273,0.045,0.314,0.028,0.329,0.054 C0.343,0.078,0.379,0.066,0.376,0.039 C0.373,0.008,0.416,-0.001,0.425,0.029 C0.433,0.055,0.472,0.051,0.475,0.024 C0.478,-0.008,0.522,-0.008,0.525,0.024"></path>
+						</clipPath>
+						<clipPath id="svgPathNewhorizontal-oval" clipPathUnits="objectBoundingBox">
+							<path d="M0,0.5 A0.35 0.35, 0 0 1, 1 0.5 A0.35 0.35, 0 0 1 0 0.5"></path>
+						</clipPath>
+						<clipPath id="svgPathNewhorizontal-right-leaning-oval" clipPathUnits="objectBoundingBox">
+							<path d="M0.12,0.3 A0.30 0.40, 45 1 1, 0.88 0.7 A0.40 0.30, -45 1 1, 0.12 0.3"></path>
+						</clipPath>
+						<clipPath id="svgPathNewhorizontal-stacked-circles" clipPathUnits="objectBoundingBox">
+							<path d="M0.668,0 C0.607,0,0.549,0.025,0.5,0.069 C0.451,0.025,0.393,0,0.332,0 C0.149,0,0,0.224,0,0.5 C0,0.776,0.149,1,0.332,1 C0.393,1,0.451,0.975,0.5,0.931 C0.549,0.975,0.607,1,0.668,1 C0.851,1,1,0.776,1,0.5 C1,0.224,0.851,0,0.668,0"></path>
+						</clipPath>
+						<clipPath id="svgPathNewhourglass" clipPathUnits="objectBoundingBox">
+							<path d="M0.038,0.196 C0.013,0.134,0,0.067,0,0 H0.5 H1 C1,0.067,0.987,0.134,0.962,0.196 C0.937,0.259,0.9,0.315,0.854,0.363 C0.807,0.41,0.752,0.448,0.691,0.474 C0.665,0.485,0.639,0.494,0.612,0.5 C0.639,0.506,0.665,0.515,0.691,0.526 C0.752,0.552,0.807,0.59,0.854,0.637 C0.9,0.685,0.937,0.741,0.962,0.804 C0.987,0.866,1,0.933,1,1 H0.5 L0,1 C0,0.933,0.013,0.866,0.038,0.804 C0.063,0.741,0.1,0.685,0.146,0.637 C0.193,0.59,0.248,0.552,0.309,0.526 C0.335,0.515,0.361,0.506,0.388,0.5 C0.361,0.494,0.335,0.485,0.309,0.474 C0.248,0.448,0.193,0.41,0.146,0.363 C0.1,0.315,0.063,0.259,0.038,0.196"></path>
+						</clipPath>
+						<clipPath id="svgPathNewkeystone" clipPathUnits="objectBoundingBox">
+							<path d="M0.8,1 H0.2 L0,0 h1 Z"></path>
+						</clipPath>
+						<clipPath id="svgPathNewnarrow-horizontal-stacked-pills" clipPathUnits="objectBoundingBox">
+							<path d="M1,0.802 a0.302,0.201,0,0,0,-0.1,-0.15 a0.303,0.201,0,0,0,0,-0.299 A0.303,0.201,0,0,0,0.702,0.003 h-0.394 a0.303,0.201,0,0,0,-0.203,0.351 a0.303,0.201,0,0,0,0,0.299 a0.303,0.201,0,0,0,0.203,0.35 h0.394 a0.303,0.201,0,0,0,0.303,-0.201"></path>
+						</clipPath>
+						<clipPath id="svgPathNewnarrow-pow" clipPathUnits="objectBoundingBox">
+							<path d="M0.687,1 c-0.061,-0.167,-0.303,-0.167,-0.364,0 C0.267,0.837,0.172,0.773,0.005,0.791 C0.172,0.695,0.172,0.311,0.005,0.215 C0.172,0.233,0.267,0.17,0.323,0.003 c0.061,0.167,0.303,0.167,0.364,0 C0.743,0.17,0.838,0.233,1,0.215 C0.838,0.311,0.838,0.695,1,0.791 C0.838,0.773,0.743,0.837,0.687,1"></path>
+						</clipPath>
+						<clipPath id="svgPathNewoctagon" clipPathUnits="objectBoundingBox">
+							<path d="M0.30,0 H0.7 L1,0.3 V0.7 L0.7,1 H0.3 L0,0.7 V0.3"></path>
+						</clipPath>
+						<clipPath id="svgPathNewopen-book" clipPathUnits="objectBoundingBox">
+							<path d="M1,1 V0 L0.503,0.106,0,0 v1 l0.5,-0.101,0.5,0.101"></path>
+						</clipPath>
+						<clipPath id="svgPathNewpointed-rectangle" clipPathUnits="objectBoundingBox">
+							<path d="M0,0.326 C0,0.146,0.224,0,0.5,0 C0.776,0,1,0.146,1,0.326 V1 H0 V0.326"></path>
+						</clipPath>
+						<clipPath id="svgPathNewpointed-window" clipPathUnits="objectBoundingBox">
+							<path d="M0.889,0.121 a0.495,0.329,0,0,0,-0.768,0 H0.01 v0.879 h1 V0.121"></path>
+						</clipPath>
+						<clipPath id="svgPathNewrabbet" clipPathUnits="objectBoundingBox">
+							<path d="M0.14,0 H0.86 V0.14 H1 V0.86 H0.86 V1 H0.14 V0.86 H0 V0.14 H0.14 Z"></path>
+						</clipPath>
+						<clipPath id="svgPathNewrounded-pentagon" clipPathUnits="objectBoundingBox">
+							<path d="M0.36,0.037 C0.437,-0.012,0.563,-0.012,0.641,0.037 C0.717,0.087,0.837,0.175,0.907,0.235 C0.977,0.294,1,0.416,0.994,0.507 C0.972,0.597,0.926,0.741,0.892,0.827 C0.858,0.913,0.756,0.988,0.665,0.995 C0.574,1,0.426,1,0.335,0.995 C0.244,0.989,0.142,0.914,0.108,0.827 C0.074,0.741,0.028,0.597,0.006,0.507 C-0.016,0.417,0.023,0.295,0.093,0.235 C0.163,0.174,0.284,0.087,0.36,0.037"></path>
+						</clipPath>
+						<clipPath id="svgPathNewstepped-cross" clipPathUnits="objectBoundingBox">
+							<path d="M0 0.33 H0.165 V0.165 H0.33 V0 H0.66 V0.165 H0.835 V0.33 H1 V0.66 H0.835 V0.835 H0.66 V1 H0.33 V0.835 H0.165 V0.66 H0 Z"></path>
+						</clipPath>
+						<clipPath id="svgPathNewtv" clipPathUnits="objectBoundingBox">
+							<path d="M0.5,0 C0.768,0,0.894,0.056,0.919,0.081 C0.944,0.106,1,0.242,1,0.505 C1,0.768,0.947,0.891,0.919,0.919 C0.891,0.947,0.768,1,0.5,1 C0.202,1,0.11,0.948,0.081,0.919 C0.052,0.89,0,0.768,0,0.5 C0,0.232,0.053,0.109,0.081,0.081 C0.109,0.053,0.232,0,0.5,0"></path>
+						</clipPath>
+						<clipPath id="svgPathNewvertical-oval" clipPathUnits="objectBoundingBox">
+							<path d="M0,0.5 A0.5 0.5, 0 0 1, 1 0.5 M1,0.5 A0.5 0.5, 0 0 1, 0 0.5 Z"></path>
+						</clipPath>
+						<clipPath id="svgPathNewvertical-parallelogram" clipPathUnits="objectBoundingBox">
+							<path d="M0.806,1 H0 L0.214,0 H1 Z"></path>
+						</clipPath>
+						<clipPath id="svgPathNewvertical-right-leaning-oval" clipPathUnits="objectBoundingBox">
+							<path d="M0.12,0.3 A0.30 0.40, 45 1 1, 0.88 0.7 A0.40 0.30, -45 1 1, 0.12 0.3"></path>
+						</clipPath>
+						<clipPath id="svgPathNewvertical-stacked-circles" clipPathUnits="objectBoundingBox">
+							<path d="M0 0.33 A0.5 0.33, 0 0 1, 1 0.33 M1 0.33 A0.5 0.33, 0 0 1, 0 0.33 M0 0.67 A0.5 0.33, 0 0 1, 1 0.67 M1 0.67 A0.5 0.33, 0 0 1, 0 0.67"></path>
+						</clipPath>
+						<clipPath id="svgPathNewwide-eight-sided-shield" clipPathUnits="objectBoundingBox">
+							<path d="M0.5,0 L0.935,0.065 L1,0.5 L0.935,0.935 L0.5,1,0.065,0.935,0,0.5,0.065,0.065,0.5,0"></path>
+						</clipPath>
+						<clipPath id="svgPathNewwide-horizontal-stacked-pills" clipPathUnits="objectBoundingBox">
+							<path d="M1,0.253 H1 A0.168,0.253,0,0,0,0.832,0 H0.168 A0.168,0.253,0,0,0,0,0.253 H0 A0.168,0.253,0,0,0,0.134,0.5 A0.168,0.253,0,0,0,0,0.747 H0 A0.168,0.253,0,0,0,0.168,1 H0.832 A0.168,0.253,0,0,0,1,0.747 H1 A0.168,0.253,0,0,0,0.866,0.5 A0.168,0.253,0,0,0,1,0.253"></path>
+						</clipPath>
+						<clipPath id="svgPathNewwide-open-book" clipPathUnits="objectBoundingBox">
+							<path d="M1,1 V0 L0.503,0.106,0,0 v1 l0.5,-0.101,0.5,0.101"></path>
+						</clipPath>
+						<clipPath id="svgPathNewwide-vertical-stacked-pills" clipPathUnits="objectBoundingBox">
+							<path d="M0.799,0 A0.201,0.302,0,0,0,0.649,0.1 A0.201,0.303,0,0,0,0.351,0.1 A0.201,0.303,0,0,0,0,0.303 V0.697 A0.201,0.303,0,0,0,0.351,0.9 A0.201,0.303,0,0,0,0.649,0.9 A0.201,0.303,0,0,0,1,0.697 V0.303 A0.201,0.303,0,0,0,0.799,0"></path>
+						</clipPath>
+					</defs>
+				</svg>
 			</body>
 		</html>
 	)

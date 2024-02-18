@@ -5,11 +5,13 @@ import {observer} from 'mobx-react';
 
 import {Element} from '../../../element/ui/element';
 import {ImageContainer, ImageElement} from './styles';
+import {Placeholder} from './components';
 
 export const Image = observer(({
     elementUnitViewModel,
     dragModel,
     resizeModel,
+    altText,
 }) => {
     const targetRef = useRef<HTMLDivElement>(null);
 
@@ -26,9 +28,16 @@ export const Image = observer(({
                 height={elementUnitViewModel.height}
                 ref={targetRef}
             >
-                <ImageElement
-                    src={elementUnitViewModel.src}
-                />
+                {
+                    elementUnitViewModel.imageData.url ? 
+                    <ImageElement
+                        src={elementUnitViewModel.imageData.url}
+                        alt={altText}
+                    /> :
+                    <Placeholder
+                        imageVM={elementUnitViewModel}
+                    />
+                }
             </ImageContainer>
         </Element>
     );

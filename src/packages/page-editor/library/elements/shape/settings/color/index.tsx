@@ -23,7 +23,7 @@ export const PopupBody = styled('div')`
     z-index: 99999;
 `;
 
-export const Color = ({elementUnitViewModel}) => {
+export const Color = ({elementVM}) => {
     const forceUpdate = useForceUpdate();
 
     const [anchor, setAnchor] = useState<null | HTMLElement>(null);
@@ -45,7 +45,7 @@ export const Color = ({elementUnitViewModel}) => {
                 onClick={openColorPalettePopup}
             >
                 <H2>{'Color'}</H2>
-                <SelectedColor elementVM={elementUnitViewModel} />
+                <SelectedColor color={elementVM.color.hex} />
             </Box>
             <BasePopup
                 id={id}
@@ -57,9 +57,9 @@ export const Color = ({elementUnitViewModel}) => {
             >
                 <PopupBody>
                     <ColorPicker
-                        color={elementUnitViewModel.color}
+                        color={elementVM.color}
                         onChange={(color) => {
-                            elementUnitViewModel.setColor(color);
+                            elementVM.setColor(color);
                             forceUpdate();
                         }}
                     />

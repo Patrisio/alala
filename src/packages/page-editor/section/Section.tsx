@@ -2,7 +2,7 @@ import {DragModel} from './models/DragModel';
 import {ResizeModel} from './models/ResizeModel';
 import {AddElement, RightControls, AddSection} from './features';
 
-import {makeAutoObservable} from 'mobx';
+import {makeAutoObservable, observable} from 'mobx';
 
 export class Section {
     public id = Math.round(Math.random() * 100000);

@@ -13,4 +13,5 @@ export {H1, H2, H3, H4, H5} from './typography';
 export {GroupedListItem, GroupedListItemContainer} from './grouped-list-item';
 export {DividerUI} from './divider';
 export {SliderUI} from './slider';
-export {RangeFieldUI} from './range-field'; 
+export {RangeFieldUI} from './range-field';
+export {TextareaUI} from './textarea';

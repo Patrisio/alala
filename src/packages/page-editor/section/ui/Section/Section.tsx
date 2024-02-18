@@ -80,6 +80,7 @@ export const Section = observer(({vm}) => {
                                         dragModel={vm.dragModel}
                                         resizeModel={vm.resizeModel}
                                         key={elementVM.id}
+                                        altText={elementVM.altText}
                                     />
                                 );
                             }

@@ -148,7 +148,7 @@ export class ResizeModel {
             positionerUnitViewModel.updateColumnEnd(outlineUnitViewModel.position.columnEnd);
             positionerUnitViewModel.updateRowStart(outlineUnitViewModel.position.rowStart);
             positionerUnitViewModel.updateRowEnd(outlineUnitViewModel.position.rowEnd);
-    
+            console.log(outlineUnitViewModel.position.rowEnd, '__ROW_END__');
             this.gridViewModel.setMaxRowsCount(this.gridViewModel.rows);
     
             e.target.style.width = '';

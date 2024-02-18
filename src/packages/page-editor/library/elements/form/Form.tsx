@@ -12,7 +12,8 @@ export const Form = observer(({
     resizeModel,
 }) => {
     const targetRef = useRef<HTMLDivElement>(null);
-
+    console.log(elementUnitViewModel.fieldList, 'elementUnitViewModel.fieldList');
+    console.log(elementUnitViewModel.fieldsMap, '__fieldsMap__');
     return (
         <Element
             targetRef={targetRef}
@@ -24,10 +25,15 @@ export const Form = observer(({
                 gridArea={elementUnitViewModel.positionerUnitViewModel.gridArea}
                 width={elementUnitViewModel.width}
                 height={elementUnitViewModel.height}
+                backgroundColor={elementUnitViewModel.backgroundColor}
                 ref={targetRef}
             >
                 {
-                    elementUnitViewModel.fieldList.map((field) => field.render())
+                    elementUnitViewModel.fieldList.map(
+                        (field) => elementUnitViewModel
+                            .getFieldVM(field.id)
+                            .render()
+                    )
                 }
             </FormContainer>
         </Element>

@@ -8,7 +8,7 @@ export class Grid {
     public restEdgePartWidth = (this.clientWidth - this.gridWidth) / 2;
 
     constructor(
-        private rows: number = 10,
+        private rows: number = 13,
         private columns: number = 24,
 
         private rowGap: number = 10,

@@ -16,7 +16,7 @@ const Popup = observer(({left, top, rect, elementUnitViewModel}) => {
                 className={"moveable-dimension1"}
                 style={{
                     width: 320,
-                    height: 300,
+                    minHeight: 300,
                     display: 'flex',
                     position: "absolute",
                     left: `${left}px`,

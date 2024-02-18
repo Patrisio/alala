@@ -1,5 +1,6 @@
 import {ElementVM} from '../../../../element/vm';
 import {config} from './config';
+import ElementEditor from '../settings/ElementEditor';
 
 export class Text extends ElementVM {
     constructor(
@@ -19,6 +20,14 @@ export class Text extends ElementVM {
             minHeight,
             position,
             'TEXT',
+        );
+    }
+
+    renderElementEditor() {
+        return (
+            <ElementEditor
+                elementUnitViewModel={this}
+            />
         );
     }
 }

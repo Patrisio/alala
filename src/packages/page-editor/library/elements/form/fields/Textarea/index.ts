@@ -1,0 +1,1 @@
+export {TextareaVM} from './vm';

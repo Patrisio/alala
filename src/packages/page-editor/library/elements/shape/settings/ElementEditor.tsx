@@ -9,6 +9,7 @@ import {Stretch} from './stretch';
 import {Blur} from './blur';
 import {Color} from './color';
 import {Shape} from './shape';
+import {Stroke} from './stroke';
 
 export const PopupBody = styled('div')`
     width: max-content;
@@ -64,9 +65,11 @@ export default observer(({elementUnitViewModel}) => {
                 <Stretch elementUnitViewModel={elementUnitViewModel} />
                 <DividerUI />
 
-                <Color elementUnitViewModel={elementUnitViewModel} />
+                <Color elementVM={elementUnitViewModel} />
                 
                 <Blur elementUnitViewModel={elementUnitViewModel} />
+
+                <Stroke elementVM={elementUnitViewModel} />
 
 
                 <InputUI

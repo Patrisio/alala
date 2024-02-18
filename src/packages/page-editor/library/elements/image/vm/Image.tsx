@@ -1,7 +1,17 @@
 import {ElementVM} from '../../../../element/vm';
 import {config} from './config';
+import ElementEditor from '../settings/ElementEditor';
+
+import {makeObservable, observable, action} from 'mobx';
 
 export class Image extends ElementVM {
+    public altText = '';
+    public imageData = {
+        url: null,
+        name: null,
+    };
+    public objectFit = 'fit';
+
     constructor(
         gridViewModel: any,
         width: number = gridViewModel.getElementWidth(config.position.columnStart, config.position.columnEnd),
@@ -19,6 +29,35 @@ export class Image extends ElementVM {
             minHeight,
             position,
             'IMAGE',
+        );
+
+        makeObservable(this, {
+            altText: observable,
+            setAltText: action,
+            imageData: observable,
+            setImageData: action,
+            objectFit: observable,
+            setObjectFit: action,
+        });
+    }
+
+    setAltText(value) {
+        this.altText = value;
+    }
+
+    setImageData(value) {
+        this.imageData = value;
+    }
+
+    setObjectFit(value) {
+        this.objectFit = value;
+    }
+
+    renderElementEditor() {
+        return (
+            <ElementEditor
+                elementUnitViewModel={this}
+            />
         );
     }
 }

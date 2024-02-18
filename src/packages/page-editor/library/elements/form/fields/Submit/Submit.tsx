@@ -1,11 +1,13 @@
 import {SubmitContainer} from './styles';
 
-export const Submit = () => {
+import {observer} from 'mobx-react';
+
+export const Submit = observer(({submitVM}) => {
     return (
         <SubmitContainer
             type='submit'
         >
-            Submit
+            {submitVM.text}
         </SubmitContainer>
     );
-};
+});

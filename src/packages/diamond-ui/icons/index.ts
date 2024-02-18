@@ -18,6 +18,22 @@ import {AsideArrowIcon} from './AsideArrow';
 import {AlignmentLeftIcon} from './AlignmentLeft';
 import {AlignmentCenterIcon} from './AlignmentCenter';
 import {AlignmentRightIcon} from './AlignmentRight';
+import {NotAllowedIcon} from './NotAllowed';
+import {SolidIcon} from './Solid';
+import {DashedIcon} from './Dashed';
+import {DragIcon} from './Drag';
+
+// Fields
+import {NameFieldIcon} from './NameField';
+import {TextFieldIcon} from './TextField';
+import {EmailFieldIcon} from './EmailField';
+import {PhoneFieldIcon} from './PhoneField';
+import {TextareaFieldIcon} from './TextareaField';
+import {DropdownFieldIcon} from './DropdownField';
+import {CheckboxFieldIcon} from './CheckboxField';
+import {RadioFieldIcon} from './RadioField';
+
+// Shape
 import {ArchedWindowIcon} from './ArchedWindow';
 import {AwardIcon} from './Award';
 
@@ -42,6 +58,22 @@ export const iconsMap = {
     alignmentLeft: AlignmentLeftIcon,
     alignmentCenter: AlignmentCenterIcon,
     alignmentRight: AlignmentRightIcon,
+    notAllowed: NotAllowedIcon,
+    solid: SolidIcon,
+    dashed: DashedIcon,
+    drag: DragIcon,
+
+    // Fields
+    nameField: NameFieldIcon,
+    textField: TextFieldIcon,
+    emailField: EmailFieldIcon,
+    phoneField: PhoneFieldIcon,
+    textareaField: TextareaFieldIcon,
+    dropdownField: DropdownFieldIcon,
+    checkboxField: CheckboxFieldIcon,
+    radioField: RadioFieldIcon,
+
+    // Shape
     archedWindow: ArchedWindowIcon,
     award: AwardIcon,
 };

@@ -46,6 +46,7 @@ export class OutlineUnitViewModel {
     }
 
     get outlineHeight() {
+        console.log(this.gridViewModel.getElementHeight(this.position.rowStart, this.position.rowEnd), '__HEIGHT_OUTLINE__');
         return this.gridViewModel.getElementHeight(this.position.rowStart, this.position.rowEnd);
     }
 }

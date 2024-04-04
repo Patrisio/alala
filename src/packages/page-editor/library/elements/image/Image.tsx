@@ -27,6 +27,7 @@ export const Image = observer(({
                 width={elementUnitViewModel.width}
                 height={elementUnitViewModel.height}
                 ref={targetRef}
+                clipPath={elementUnitViewModel.clipPathUrlId}
             >
                 {
                     elementUnitViewModel.imageData.url ? 

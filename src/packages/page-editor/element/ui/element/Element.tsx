@@ -46,7 +46,13 @@ export const Element = observer(({
     children,
 }) => {
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        console.log(elementUnitViewModel.isElementToolbarOpened, elementUnitViewModel.isEditorToolbarOpened);
+        console.log(elementUnitViewModel.isElementToolbarOpened, elementUnitViewModel.isEditorToolbarOpened, '__CLICK______');
+        console.log(focusOnClick, 'focusOnClick');
+        if (focusOnClick) {
+            console.log('FOCUS__', contentRef?.current);
+            contentRef?.current?.focus();
+        }
+
         if (elementUnitViewModel.isElementToolbarOpened || elementUnitViewModel.isEditorToolbarOpened) return;
 
         elementUnitViewModel.openElementToolbar();
@@ -78,11 +84,11 @@ export const Element = observer(({
 
         bounds,
 
-        ...(focusOnClick && {
-            onClick: () => {
-                targetRef?.current?.focus();
-            }
-        }),
+        // ...(focusOnClick && {
+        //     onClick: () => {
+        //         targetRef?.current?.focus();
+        //     }
+        // }),
     }), [moveableData, bounds]);
 
     const recalculate = useCallback((mutationRecordList) => {
@@ -152,24 +158,24 @@ export const Element = observer(({
             {/* <ClickAwayListener
                 onClickAway={closeAllToolbars}
             > */}
-                <Moveable
-                    ables={[
-                        ElementEditor(elementUnitViewModel),
-                        ElementToolbar(elementUnitViewModel),
-                    ]}
-                    props={{
-                        elementToolbar: elementUnitViewModel.isElementToolbarOpened,
-                        elementEditor: elementUnitViewModel.isEditorToolbarOpened,
-                    }}
-                    ref={moveableRef}
-                    target={targetRef}
-                    draggable
-                    resizable
-                    origin={false}
-                    {...moveableProps}
-                    onClick={handleClick}
-                    className={'huiii'}
-                />
+            <Moveable
+                ables={[
+                    ElementEditor(elementUnitViewModel),
+                    ElementToolbar(elementUnitViewModel),
+                ]}
+                props={{
+                    elementToolbar: elementUnitViewModel.isElementToolbarOpened,
+                    elementEditor: elementUnitViewModel.isEditorToolbarOpened,
+                }}
+                target={targetRef}
+                ref={moveableRef}
+                draggable
+                resizable
+                origin={false}
+                {...moveableProps}
+                onClick={handleClick}
+                className={'huiii'}
+            />
             {/* </ClickAwayListener> */}
         </>
     );

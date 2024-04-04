@@ -11,6 +11,7 @@ export class Image extends ElementVM {
         name: null,
     };
     public objectFit = 'fit';
+    public clipPathUrlId = null;
 
     constructor(
         gridViewModel: any,
@@ -38,6 +39,8 @@ export class Image extends ElementVM {
             setImageData: action,
             objectFit: observable,
             setObjectFit: action,
+            clipPathUrlId: observable,
+            setClipPathUrlId: action,
         });
     }
 
@@ -51,6 +54,10 @@ export class Image extends ElementVM {
 
     setObjectFit(value) {
         this.objectFit = value;
+    }
+
+    setClipPathUrlId(value) {
+        this.clipPathUrlId = value;
     }
 
     renderElementEditor() {

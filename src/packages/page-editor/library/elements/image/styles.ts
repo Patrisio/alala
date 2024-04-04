@@ -4,10 +4,12 @@ export const ImageContainer = styled.div<{
     gridArea: string,
     width: number,
     height: number,
+    clipPath: string | null,
 }>`
     ${({width}) => `width: ${width}px`};
     ${({height}) => `height: ${height}px`};
     ${({gridArea}) => `grid-area: ${gridArea}`};
+    ${({clipPath}) => `clip-path: ${clipPath ? `url(#${clipPath})` : 'none'}`};
     opacity: .6;
     position: absolute;
 `;
